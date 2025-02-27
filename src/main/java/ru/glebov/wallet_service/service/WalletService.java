@@ -28,6 +28,7 @@ public class WalletService {
         return ValidationUtil.checkNotFoundWithId(repository.findById(walletId).orElse(null), walletId);
     }
 
+    @Transactional
     public BigDecimal getAmount(UUID walletId) {
         log.info("get amount of wallet {}", walletId);
         return get(walletId).getAmount();
