@@ -10,8 +10,9 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping(WalletController.REST_URL)
 public class WalletController {
+    public static final String REST_URL = "/api/v1";
 
     private final WalletService service;
 
