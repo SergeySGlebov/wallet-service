@@ -3,6 +3,8 @@ package ru.glebov.wallet_service.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Digits;
 
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -14,6 +16,8 @@ public class Wallet {
     @Id
     private UUID walletId;
 
+    @DecimalMin(value = "0.0", inclusive = false)
+    @Digits(integer = 13, fraction = 2)
     private BigDecimal amount;
 
     public Wallet() {
