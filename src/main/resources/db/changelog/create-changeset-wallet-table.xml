@@ -6,7 +6,7 @@
 
     <changeSet id="create_table_wallet" author="glebov">
         <createTable tableName="wallet">
-            <column autoIncrement="true" name="id" type="INTEGER">
+            <column name="wallet_id" type="UUID" defaultValueComputed="uuid_generate_v4()">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
             <column name="amount" type="DECIMAL"/>

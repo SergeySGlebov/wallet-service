@@ -6,20 +6,21 @@ import jakarta.persistence.Table;
 
 import java.math.BigDecimal;
 import java.util.Objects;
+import java.util.UUID;
 
 @Entity
 @Table(name = "wallet")
 public class Wallet {
     @Id
-    private Integer id;
+    private UUID walletId;
 
     private BigDecimal amount;
 
     public Wallet() {
     }
 
-    public Wallet(Integer id, BigDecimal amount) {
-        this.id = id;
+    public Wallet(UUID walletId, BigDecimal amount) {
+        this.walletId = walletId;
         this.amount = amount;
     }
 
@@ -31,23 +32,23 @@ public class Wallet {
         this.amount = amount;
     }
 
-    public Integer getId() {
-        return id;
+    public UUID getWalletId() {
+        return walletId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setWalletId(UUID walletId) {
+        this.walletId = walletId;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Wallet wallet = (Wallet) o;
-        return Objects.equals(id, wallet.id) && Objects.equals(amount, wallet.amount);
+        return Objects.equals(walletId, wallet.walletId) && Objects.equals(amount, wallet.amount);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, amount);
+        return Objects.hash(walletId, amount);
     }
 }
